@@ -1,0 +1,24 @@
+steps:
+  - name: 'gcr.io/k8s-skaffold/pack'
+    args:
+      - 'build'
+      - 'coffversation'
+      - '--builder'
+      - 'paketobuildpacks/builder-jammy-tiny'
+      - '--buildpack'
+      - 'gcr.io/paketo-buildpacks/java-native-image'
+      - '--env'
+      - 'BP_NATIVE_IMAGE=true'
+      - '--env'
+      - 'BP_GRADLE_BUILT_ARTIFACT=build/libs/coffversation.jar'
+      - '--tag'
+      - 'gcr.io/$GCP_PROJECT/coffversation'
+      - '--path'
+      - '.'
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'push', 'gcr.io/$GCP_PROJECT/coffversation' ]
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: [ 'run', 'deploy', 'coffversation', '--image', 'gcr.io/$GCP_PROJECT/coffversation', '--region', 'us-east1', '--allow-unauthenticated' ]
+options:
+  machineType: 'E2_HIGHCPU_8'
