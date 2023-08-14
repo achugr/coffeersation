@@ -33,7 +33,9 @@ class CoffeeTalkService(
 
     suspend fun initTalk(initTalk: InitCoffeeTalk) {
         val coffeeTalk = upsert(initTalk)
-        scheduleNext(coffeeTalk)
+        if (coffeeTalk.introFrequency != PAUSED) {
+            scheduleNext(coffeeTalk)
+        }
     }
 
     suspend fun postInfo(requestInfo: RequestInfo) {
