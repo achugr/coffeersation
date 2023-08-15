@@ -1,6 +1,6 @@
-package com.achugr.coffversation.slack
+package com.achugr.coffeersation.slack
 
-import com.achugr.coffversation.model.IntroFrequency
+import com.achugr.coffeersation.model.IntroFrequency
 import com.slack.api.model.kotlin_extension.block.withBlocks
 
 fun menu() = withBlocks {

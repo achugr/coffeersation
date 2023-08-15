@@ -1,7 +1,7 @@
-package com.achugr.coffversation.model
+package com.achugr.coffeersation.model
 
-import com.achugr.coffversation.entity.CoffeeTalkStateEntity
-import com.achugr.coffversation.entity.ParticipantEntity
+import com.achugr.coffeersation.entity.CoffeeTalkStateEntity
+import com.achugr.coffeersation.entity.ParticipantEntity
 import java.time.Instant
 import java.util.LinkedList
 import kotlin.collections.LinkedHashSet

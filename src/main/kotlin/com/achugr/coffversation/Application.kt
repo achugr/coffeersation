@@ -1,7 +1,7 @@
-package com.achugr.coffversation
+package com.achugr.coffeersation
 
-import com.achugr.coffversation.service.taskHandlerModule
-import com.achugr.coffversation.slack.slackRootModule
+import com.achugr.coffeersation.service.taskHandlerModule
+import com.achugr.coffeersation.slack.slackRootModule
 import io.ktor.serialization.jackson.*
 import io.ktor.server.application.*
 import io.ktor.server.cio.*

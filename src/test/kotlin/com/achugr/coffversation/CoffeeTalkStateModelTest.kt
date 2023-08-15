@@ -1,9 +1,9 @@
-package com.achugr.coffversation
+package com.achugr.coffeersation
 
-import com.achugr.coffversation.model.CoffeeTalkStateModel
-import com.achugr.coffversation.model.IntroFrequency
-import com.achugr.coffversation.model.Participant
-import com.achugr.coffversation.model.TalkPair
+import com.achugr.coffeersation.model.CoffeeTalkStateModel
+import com.achugr.coffeersation.model.IntroFrequency
+import com.achugr.coffeersation.model.Participant
+import com.achugr.coffeersation.model.TalkPair
 import io.kotest.matchers.collections.shouldContainAll
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test

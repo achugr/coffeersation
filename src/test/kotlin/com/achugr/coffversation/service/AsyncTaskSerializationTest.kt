@@ -1,7 +1,7 @@
-import com.achugr.coffversation.model.IntroFrequency
-import com.achugr.coffversation.service.TriggerTalkRound
-import com.achugr.coffversation.service.RequestInfo
-import com.achugr.coffversation.service.InitCoffeeTalk
+import com.achugr.coffeersation.model.IntroFrequency
+import com.achugr.coffeersation.service.TriggerTalkRound
+import com.achugr.coffeersation.service.RequestInfo
+import com.achugr.coffeersation.service.InitCoffeeTalk
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import io.kotest.core.spec.style.StringSpec

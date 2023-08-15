@@ -1,7 +1,7 @@
-package com.achugr.coffversation.service
+package com.achugr.coffeersation.service
 
-import com.achugr.coffversation.model.IntroFrequency
-import com.achugr.coffversation.model.IntroFrequency.*
+import com.achugr.coffeersation.model.IntroFrequency
+import com.achugr.coffeersation.model.IntroFrequency.*
 import java.time.*
 import java.time.temporal.ChronoUnit
 import java.time.temporal.TemporalAdjusters

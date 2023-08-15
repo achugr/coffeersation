@@ -1,7 +1,7 @@
-package com.achugr.coffversation.entity
+package com.achugr.coffeersation.entity
 
-import com.achugr.coffversation.model.IntroFrequency
-import com.achugr.coffversation.datastore
+import com.achugr.coffeersation.model.IntroFrequency
+import com.achugr.coffeersation.datastore
 import com.google.cloud.Timestamp
 import com.google.cloud.datastore.*
 import java.time.Instant

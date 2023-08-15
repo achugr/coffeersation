@@ -131,7 +131,7 @@
     ]
   },
   {
-    "name": "com.achugr.coffversation.ApplicationKt",
+    "name": "com.achugr.coffeersation.ApplicationKt",
     "queryAllPublicMethods": true,
     "methods": [
       {
@@ -147,7 +147,7 @@
     ]
   },
   {
-    "name": "com.achugr.coffversation.ApplicationKt",
+    "name": "com.achugr.coffeersation.ApplicationKt",
     "queryAllPublicMethods": true,
     "methods": [
       {
@@ -484,7 +484,7 @@
     ]
   },
   {
-    "name": "com.achugr.coffversation.service.AsyncTask",
+    "name": "com.achugr.coffeersation.service.AsyncTask",
     "allDeclaredConstructors": true,
     "allPublicConstructors": true,
     "allDeclaredMethods": true,
@@ -495,7 +495,7 @@
     "allPublicFields": true
   },
   {
-    "name": "com.achugr.coffversation.service.TriggerTalkRound",
+    "name": "com.achugr.coffeersation.service.TriggerTalkRound",
     "allDeclaredConstructors": true,
     "allPublicConstructors": true,
     "allDeclaredMethods": true,
@@ -506,7 +506,7 @@
     "allPublicFields": true
   },
   {
-    "name": "com.achugr.coffversation.service.InitCoffeeTalk",
+    "name": "com.achugr.coffeersation.service.InitCoffeeTalk",
     "allDeclaredConstructors": true,
     "allPublicConstructors": true,
     "allDeclaredMethods": true,
@@ -517,7 +517,7 @@
     "allPublicFields": true
   },
   {
-    "name": "com.achugr.coffversation.service.RequestInfo",
+    "name": "com.achugr.coffeersation.service.RequestInfo",
     "allDeclaredConstructors": true,
     "allPublicConstructors": true,
     "allDeclaredMethods": true,

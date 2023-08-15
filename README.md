@@ -1,6 +1,6 @@
-# Coffversation - A Minimalistic Coffee Talk Bot for Slack (yet another one)
+# coffeersation - A Minimalistic Coffee Talk Bot for Slack (yet another one)
 
-The primary goal of Coffversation is to provide a simple and easy-to-deploy coffee talk bot for Slack. It also serves as an excellent platform to practice GCP, Kotlin, and GraalVM.
+The primary goal of coffeersation is to provide a simple and easy-to-deploy coffee talk bot for Slack. It also serves as an excellent platform to practice GCP, Kotlin, and GraalVM.
 
 ## Technical Specifications
 

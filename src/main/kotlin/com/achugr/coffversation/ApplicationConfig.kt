@@ -1,9 +1,9 @@
-package com.achugr.coffversation
+package com.achugr.coffeersation
 
-import com.achugr.coffversation.service.AsyncTaskService
-import com.achugr.coffversation.service.CoffeeTalkService
-import com.achugr.coffversation.service.IntroSchedulerService
-import com.achugr.coffversation.slack.SlackService
+import com.achugr.coffeersation.service.AsyncTaskService
+import com.achugr.coffeersation.service.CoffeeTalkService
+import com.achugr.coffeersation.service.IntroSchedulerService
+import com.achugr.coffeersation.slack.SlackService
 import com.google.api.gax.core.FixedCredentialsProvider
 import com.google.api.gax.core.GoogleCredentialsProvider
 import com.google.auth.Credentials

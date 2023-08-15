@@ -1,7 +1,7 @@
-package com.achugr.coffversation
+package com.achugr.coffeersation
 
-import com.achugr.coffversation.model.IntroFrequency
-import com.achugr.coffversation.service.IntroSchedulerService
+import com.achugr.coffeersation.model.IntroFrequency
+import com.achugr.coffeersation.service.IntroSchedulerService
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.comparables.shouldBeLessThan
 import io.kotest.matchers.shouldBe

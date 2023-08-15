@@ -1,4 +1,4 @@
-package com.achugr.coffversation.model
+package com.achugr.coffeersation.model
 
 enum class IntroFrequency {
     NOW_ONCE,

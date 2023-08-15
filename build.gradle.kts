@@ -13,7 +13,7 @@ plugins {
     id("io.ktor.plugin") version "2.3.3"
 }
 
-group = "com.achugr.coffversation"
+group = "com.achugr.coffeersation"
 version = "0.0.1"
 
 repositories {
@@ -60,9 +60,9 @@ dependencies {
 
 ktor {
     fatJar {
-        archiveFileName.set("coffversation.jar")
+        archiveFileName.set("coffeersation.jar")
     }
     application {
-        mainClass.set("com.achugr.coffversation.ApplicationKt")
+        mainClass.set("com.achugr.coffeersation.ApplicationKt")
     }
 }

@@ -1,7 +1,7 @@
-package com.achugr.coffversation.service
+package com.achugr.coffeersation.service
 
-import com.achugr.coffversation.*
-import com.achugr.coffversation.model.IntroFrequency
+import com.achugr.coffeersation.*
+import com.achugr.coffeersation.model.IntroFrequency
 import com.fasterxml.jackson.annotation.JsonSubTypes
 import com.fasterxml.jackson.annotation.JsonTypeInfo
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper

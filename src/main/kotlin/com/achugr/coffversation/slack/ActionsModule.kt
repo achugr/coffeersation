@@ -1,8 +1,8 @@
-package com.achugr.coffversation.slack
+package com.achugr.coffeersation.slack
 
-import com.achugr.coffversation.asyncTaskService
-import com.achugr.coffversation.model.IntroFrequency
-import com.achugr.coffversation.service.InitCoffeeTalk
+import com.achugr.coffeersation.asyncTaskService
+import com.achugr.coffeersation.model.IntroFrequency
+import com.achugr.coffeersation.service.InitCoffeeTalk
 import kotlinx.coroutines.runBlocking
 
 fun actionsModule() {

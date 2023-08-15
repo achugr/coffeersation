@@ -1,7 +1,7 @@
-package com.achugr.coffversation.slack
+package com.achugr.coffeersation.slack
 
-import com.achugr.coffversation.asyncTaskService
-import com.achugr.coffversation.service.RequestInfo
+import com.achugr.coffeersation.asyncTaskService
+import com.achugr.coffeersation.service.RequestInfo
 import kotlinx.coroutines.runBlocking
 
 fun commandsModule() {

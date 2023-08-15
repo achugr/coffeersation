@@ -1,4 +1,4 @@
-package com.achugr.coffversation.slack
+package com.achugr.coffeersation.slack
 
 import com.slack.api.methods.AsyncMethodsClient
 import com.slack.api.methods.response.conversations.ConversationsMembersResponse

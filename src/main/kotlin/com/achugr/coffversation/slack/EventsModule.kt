@@ -1,4 +1,4 @@
-package com.achugr.coffversation.slack
+package com.achugr.coffeersation.slack
 
 import com.slack.api.model.event.AppMentionEvent
 

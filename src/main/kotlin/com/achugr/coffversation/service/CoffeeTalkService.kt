@@ -1,13 +1,13 @@
-package com.achugr.coffversation.service
+package com.achugr.coffeersation.service
 
-import com.achugr.coffversation.model.CoffeeTalkStateModel.Helper.fromEntity
-import com.achugr.coffversation.model.IntroFrequency.*
-import com.achugr.coffversation.entity.CoffeeTalkStateEntity
-import com.achugr.coffversation.model.CoffeeTalkStateModel
-import com.achugr.coffversation.model.Participant
-import com.achugr.coffversation.model.TalkPair
-import com.achugr.coffversation.slack.Member
-import com.achugr.coffversation.slack.SlackService
+import com.achugr.coffeersation.model.CoffeeTalkStateModel.Helper.fromEntity
+import com.achugr.coffeersation.model.IntroFrequency.*
+import com.achugr.coffeersation.entity.CoffeeTalkStateEntity
+import com.achugr.coffeersation.model.CoffeeTalkStateModel
+import com.achugr.coffeersation.model.Participant
+import com.achugr.coffeersation.model.TalkPair
+import com.achugr.coffeersation.slack.Member
+import com.achugr.coffeersation.slack.SlackService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll

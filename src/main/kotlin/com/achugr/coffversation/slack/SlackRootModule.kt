@@ -1,7 +1,7 @@
-package com.achugr.coffversation.slack
+package com.achugr.coffeersation.slack
 
-import com.achugr.coffversation.executor
-import com.achugr.coffversation.logger
+import com.achugr.coffeersation.executor
+import com.achugr.coffeersation.logger
 import com.slack.api.bolt.App
 import com.slack.api.bolt.ktor.respond
 import com.slack.api.bolt.ktor.toBoltRequest
