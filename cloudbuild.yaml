@@ -20,6 +20,5 @@ steps:
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args: [ 'run', 'deploy', 'coffeersation', '--image', 'gcr.io/coffeersation/app', '--region', 'us-east1', '--allow-unauthenticated' ]
-    when: '$DEPLOY = "true"'
 options:
   machineType: 'E2_HIGHCPU_8'
