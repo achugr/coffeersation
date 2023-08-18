@@ -13,7 +13,7 @@ class IntroSchedulerService {
             NOW_ONCE -> Instant.now()
             EVERY_MINUTE_TESTING -> lastRun?.plus(Duration.ofMinutes(1)) ?: Instant.now()
             MONDAY_ONCE_A_WEEK, MONDAY_ONCE_TWO_WEEKS -> getNextMonday(introFrequency, lastRun)
-            else -> throw IllegalArgumentException("Unknown frequency $introFrequency")
+            else -> throw IllegalArgumentException("Unknown frequency $introFrequency.")
         }
     }
 
