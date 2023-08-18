@@ -23,6 +23,5 @@ gradle-app.setting
 .classpath
 .env
 
-cloudbuild.yaml
 build.sh
 gcp-key.json

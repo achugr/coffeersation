@@ -12,13 +12,14 @@ steps:
       - '--env'
       - 'BP_GRADLE_BUILT_ARTIFACT=build/libs/coffeersation.jar'
       - '--tag'
-      - 'gcr.io/$GCP_PROJECT/coffeersation'
+      - 'gcr.io/coffeersation/app'
       - '--path'
       - '.'
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'push', 'gcr.io/$GCP_PROJECT/coffeersation' ]
+    args: [ 'push', 'gcr.io/coffeersation/app' ]
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
-    args: [ 'run', 'deploy', 'coffeersation', '--image', 'gcr.io/$GCP_PROJECT/coffeersation', '--region', 'us-east1', '--allow-unauthenticated' ]
+    args: [ 'run', 'deploy', 'coffeersation', '--image', 'gcr.io/coffeersation/app', '--region', 'us-east1', '--allow-unauthenticated' ]
+    when: '$DEPLOY = "true"'
 options:
   machineType: 'E2_HIGHCPU_8'
