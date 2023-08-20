@@ -6,7 +6,7 @@ steps:
       - '--builder'
       - 'paketobuildpacks/builder-jammy-tiny'
       - '--buildpack'
-      - 'gcr.io/paketo-buildpacks/java-native-image'
+      - 'gcr.io/paketo-buildpacks/java-native-image:8.15'
       - '--env'
       - 'BP_NATIVE_IMAGE=true'
       - '--env'
