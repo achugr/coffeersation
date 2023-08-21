@@ -28,13 +28,13 @@ data class TalkPair(val p1: Participant, val p2: Participant) {
 }
 
 data class CoffeeTalkStateModel(
-    var participants: LinkedHashSet<Participant>,
+    val participants: LinkedHashSet<Participant>,
     val channel: String,
-    var roundNumber: Int,
-    var lastRun: Instant?,
-    var nextRun: Instant?,
-    var introFrequency: IntroFrequency,
-    var version: Int
+    val roundNumber: Int,
+    val lastRun: Instant?,
+    val nextRun: Instant?,
+    val introFrequency: IntroFrequency,
+    val version: Int
 ) {
 
     /**
@@ -66,7 +66,6 @@ data class CoffeeTalkStateModel(
             .map { (it + roundNumber) % (roundParticipants.size - 1) + 1 }
             .forEach { currentRound.add(roundParticipants[it]) }
 
-        roundNumber++
         return (0 until currentRound.size / 2).map {
             TalkPair(currentRound[it], currentRound[currentRound.size - 1 - it])
         }
@@ -103,4 +102,6 @@ data class CoffeeTalkStateModel(
             return CoffeeTalkStateModel(LinkedHashSet(), channel, 0, null, null, frequency, 0)
         }
     }
+
+    fun save(): CoffeeTalkStateModel = fromEntity(this.toEntity().save())
 }
