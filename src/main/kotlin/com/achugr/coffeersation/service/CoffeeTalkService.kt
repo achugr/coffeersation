@@ -53,17 +53,22 @@ class CoffeeTalkService(
             log.info("Trigger $trigger referencing old configuration, skipping round generation.")
             return
         }
-        coffeeTalk.actualize(slackService.getMembers(coffeeTalk.channel).map { Participant(it.id) })
-        notify(coffeeTalk.generateRound())
-        log.info("Notified about new round in channel ${coffeeTalk.channel}")
-        coffeeTalk.lastRun = Instant.now()
-        coffeeTalk.roundNumber++
-        save(coffeeTalk).let { saved ->
-            if (coffeeTalk.introFrequency != NOW_ONCE) {
-                scheduleNext(saved)
+        actualize(coffeeTalk).let { actualCoffeeTalk ->
+            notify(actualCoffeeTalk.generateRound())
+            log.info("Notified about new round in channel ${actualCoffeeTalk.channel}.")
+            actualCoffeeTalk.copy(
+                lastRun = Instant.now(),
+                roundNumber = coffeeTalk.roundNumber + 1
+            ).save().let { saved ->
+                if (saved.introFrequency != NOW_ONCE) {
+                    scheduleNext(saved)
+                }
             }
         }
     }
+
+    private suspend fun actualize(coffeeTalk: CoffeeTalkStateModel) =
+        coffeeTalk.actualize(slackService.getMembers(coffeeTalk.channel).map { Participant(it.id) })
 
     private fun getNextIntroDateInfo(coffeeTalk: CoffeeTalkStateModel) = coffeeTalk.nextRun?.let {
         "Next intro date is ${humanReadableDateFormatter.format(it.truncatedTo(ChronoUnit.DAYS))}"
@@ -107,7 +112,7 @@ class CoffeeTalkService(
 
     private suspend fun scheduleNext(coffeeTalk: CoffeeTalkStateModel) {
         val nextRun = schedulerHelper.getNextRun(coffeeTalk.introFrequency, coffeeTalk.lastRun)
-        save(coffeeTalk.copy(nextRun = nextRun)).let {
+        coffeeTalk.copy(nextRun = nextRun).save().let {
             val trigger = TriggerTalkRound(it.channel, it.version)
             asyncTaskService.execute(trigger, nextRun)
         }
@@ -115,11 +120,9 @@ class CoffeeTalkService(
 
     private fun upsert(initTalk: InitCoffeeTalk): CoffeeTalkStateModel =
         CoffeeTalkStateEntity.find(initTalk.channel)
-            ?.let { save(fromEntity(it.copy(lastRun = null, nextRun = null, schedule = initTalk.freq))) }
-            ?: save(CoffeeTalkStateModel.new(initTalk.channel, initTalk.freq))
+            ?.let { fromEntity(it.copy(lastRun = null, nextRun = null, schedule = initTalk.freq)).save() }
+            ?: CoffeeTalkStateModel.new(initTalk.channel, initTalk.freq).save()
 
-    private fun save(coffeeTalk: CoffeeTalkStateModel): CoffeeTalkStateModel =
-        fromEntity(coffeeTalk.toEntity().save())
 
     private fun get(channel: String) = CoffeeTalkStateEntity.find(channel)
         ?.let { fromEntity(it) }
