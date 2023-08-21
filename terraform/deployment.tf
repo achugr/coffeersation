@@ -1,5 +1,5 @@
 resource "google_project_service" "cloudbuild_api" {
-  service            = "cloudbuild.googleapis.com"
+  service = "cloudbuild.googleapis.com"
   timeouts {
     create = "30m"
     update = "40m"
@@ -29,6 +29,7 @@ resource "google_secret_manager_secret_version" "github_token_secret_version" {
   secret_data = var.github_token
 }
 
+
 data "google_iam_policy" "serviceagent_secretAccessor" {
   binding {
     role    = "roles/secretmanager.secretAccessor"
@@ -40,6 +41,12 @@ resource "google_secret_manager_secret_iam_policy" "github_token_policy" {
   project     = google_secret_manager_secret.github_token_secret.project
   secret_id   = google_secret_manager_secret.github_token_secret.secret_id
   policy_data = data.google_iam_policy.serviceagent_secretAccessor.policy_data
+}
+
+resource "google_project_iam_member" "cloudbuild_run_admin" {
+  project = var.project_id
+  role    = "roles/run.admin"
+  member  = "serviceAccount:service-${data.google_project.project.number}@gcp-sa-cloudbuild.iam.gserviceaccount.com"
 }
 
 resource "google_cloudbuildv2_connection" "github_connection" {
@@ -55,10 +62,10 @@ resource "google_cloudbuildv2_connection" "github_connection" {
 }
 
 resource "google_cloudbuildv2_repository" "coffeersation_repository" {
-  name = "coffeersation_repository"
-  location = var.cloudbuild_location
+  name              = "coffeersation_repository"
+  location          = var.cloudbuild_location
   parent_connection = google_cloudbuildv2_connection.github_connection.name
-  remote_uri = var.github_repo_url
+  remote_uri        = var.github_repo_url
 }
 
 resource "google_cloudbuild_trigger" "repo-trigger" {
