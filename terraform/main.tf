@@ -174,6 +174,19 @@ resource "google_firestore_database" "firestore_database" {
 resource "google_cloud_tasks_queue" "tasks_queue" {
   name     = "tasks"
   location = "us-east1"
+
+  rate_limits {
+    max_concurrent_dispatches = 3
+    max_dispatches_per_second = 2
+  }
+
+  retry_config {
+    max_attempts = 5
+    max_retry_duration = "120s"
+    max_backoff = "30s"
+    min_backoff = "2s"
+    max_doublings = 1
+  }
 }
 
 resource "google_service_account" "coffeersation_internal_sa" {
