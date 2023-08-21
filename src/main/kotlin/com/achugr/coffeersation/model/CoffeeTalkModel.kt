@@ -102,4 +102,6 @@ data class CoffeeTalkStateModel(
             return CoffeeTalkStateModel(LinkedHashSet(), channel, 0, null, null, frequency, 0)
         }
     }
+
+    fun save(): CoffeeTalkStateModel = fromEntity(this.toEntity().save())
 }
