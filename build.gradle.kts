@@ -31,7 +31,6 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 }
 
 dependencies {
-    runtimeOnly(libs.bundles.logger)
     implementation("com.google.cloud:google-cloud-logging-logback")
     implementation("org.slf4j:slf4j-api:2.0.6")
     implementation("com.slack.api:slack-api-client:$slack_version")

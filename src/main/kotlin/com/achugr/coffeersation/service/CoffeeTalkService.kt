@@ -44,7 +44,7 @@ class CoffeeTalkService(
     }
 
     suspend fun triggerRound(trigger: TriggerTalkRound) {
-        val coffeeTalk = get(trigger.channel)
+        var coffeeTalk = get(trigger.channel)
         if (coffeeTalk.introFrequency == PAUSED) {
             log.info("Introduction for ${coffeeTalk.channel} is on pause, skipping round generation.")
             return
@@ -53,11 +53,10 @@ class CoffeeTalkService(
             log.info("Trigger $trigger referencing old configuration, skipping round generation.")
             return
         }
-        coffeeTalk.actualize(slackService.getMembers(coffeeTalk.channel).map { Participant(it.id) })
+        coffeeTalk = coffeeTalk.actualize(slackService.getMembers(coffeeTalk.channel).map { Participant(it.id) })
         notify(coffeeTalk.generateRound())
         log.info("Notified about new round in channel ${coffeeTalk.channel}")
-        coffeeTalk.lastRun = Instant.now()
-        coffeeTalk.roundNumber++
+        coffeeTalk = coffeeTalk.copy(lastRun = Instant.now(), roundNumber = coffeeTalk.roundNumber + 1)
         save(coffeeTalk).let { saved ->
             if (coffeeTalk.introFrequency != NOW_ONCE) {
                 scheduleNext(saved)
