@@ -49,6 +49,18 @@ resource "google_project_iam_member" "cloudbuild_run_admin" {
   member  = "serviceAccount:service-${data.google_project.project.number}@gcp-sa-cloudbuild.iam.gserviceaccount.com"
 }
 
+resource "google_project_iam_member" "cloudbuild_cloudrun_access" {
+  project = var.project_id
+  role    = "roles/run.admin"
+  member  = "serviceAccount:${data.google_project.project.number}@cloudbuild.gserviceaccount.com"
+}
+
+resource "google_service_account_iam_member" "cloudbuild_sa_as_cloudrun_sa" {
+  service_account_id = google_service_account.cloud_run_service_account.name
+  role               = "roles/iam.serviceAccountUser"
+  member = "serviceAccount:${data.google_project.project.number}@cloudbuild.gserviceaccount.com"
+}
+
 resource "google_cloudbuildv2_connection" "github_connection" {
   name     = "github_connection"
   location = var.cloudbuild_location
