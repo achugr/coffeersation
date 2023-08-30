@@ -53,7 +53,7 @@ class AsyncTaskService(private val client: CloudTasksClient) {
         ApiFutureToListenableFuture(future)
             .asDeferred()
             .await()
-        log.info("Task of kind ${task.kind} has been scheduled")
+        log.info("A task of kind ${task.kind} has been scheduled")
     }
 }
 

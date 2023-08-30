@@ -6,6 +6,7 @@ val google_cloud_sdk_version: String by project
 
 val coroutinesVersion by extra("1.7.3")
 val kotestVersion by extra("5.6.2")
+val logbackVersion by extra("1.4.5")
 
 plugins {
     application
@@ -31,6 +32,8 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 }
 
 dependencies {
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
+    implementation("ch.qos.logback:logback-core:$logbackVersion")
     implementation("com.google.cloud:google-cloud-logging-logback")
     implementation("org.slf4j:slf4j-api:2.0.6")
     implementation("com.slack.api:slack-api-client:$slack_version")
