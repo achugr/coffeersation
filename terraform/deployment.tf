@@ -85,7 +85,7 @@ resource "google_cloudbuild_trigger" "repo-trigger" {
   repository_event_config {
     repository = google_cloudbuildv2_repository.coffeersation_repository.id
     push {
-      branch = "add-terraform"
+      branch = "main"
     }
   }
 
