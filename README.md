@@ -10,7 +10,9 @@ The primary goal of coffeersation is to provide a simple and easy-to-deploy coff
   - [Bolt](https://slack.dev/java-slack-sdk/guides/getting-started-with-bolt), a bot framework.
 - **Web Server**: Ktor.
 - **Cloud Computing Platform**: GraalVM for native image. The project aims to achieve a startup time of 3 seconds on cloud run for responding to Slack's webhooks. Although it starts in approximately 100 milliseconds locally, achieving the same in CloudRun is still in progress.
-
+- **Infrastructure settings**: Terraform.
+  - Configures deployment pipeline for the application via Cloud Build.
+  - Configures required GCP resources: Cloud Run, Cloud Task, Datastore and corresponding secrets.
 ### Platform
 
 The bot operates on Google Cloud Platform (GCP):
@@ -19,5 +21,4 @@ The bot operates on Google Cloud Platform (GCP):
 - Datastore for maintaining the introduction state.
 
 ## Future Improvements
-- Integrate Terraform for resource configuration to reduce manual work.
 - Document the application deployment steps.
